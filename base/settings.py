@@ -3,7 +3,7 @@ import os, datetime
 
 # We can't set the debug just using the env var.
 # Python with evaluate any string as a True bool.
-DEBUG = False
+DEBUG = True
 if os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true':
     DEBUG = True
 
@@ -13,7 +13,7 @@ SERVE_MEDIA = True
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ChangeMe!')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ChangeMe123123123123132!')
 
 # Force Django to use https headers if its behind a https proxy.
 # See: https://docs.djangoproject.com/en/2.0/ref/settings/#secure-proxy-ssl-header
@@ -24,15 +24,12 @@ SITE_ID = 1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DATABASE', 'openeats'),
-        'USER': os.environ.get('MYSQL_USER', 'root'),
-        'PASSWORD': os.environ.get('MYSQL_ROOT_PASSWORD', ''),
-        'HOST': os.environ.get('MYSQL_HOST', 'db'),
-        'PORT': os.environ.get('MYSQL_PORT', '3306'),
-        'OPTIONS': {
-            'charset': 'utf8mb4'
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE_NAME', 'openeats'),
+        'USER': os.environ.get('DATABASE_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'ecosaude'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': os.environ.get('DATABASE_PORT', '5432'),
         'TEST': {
             'NAME': os.environ.get('MYSQL_TEST_DATABASE', 'test_openeats')
         }
@@ -183,9 +180,12 @@ if not DEBUG:
         'rest_framework.renderers.JSONRenderer',
     )
 
-CORS_ORIGIN_WHITELIST = (
-    os.environ.get('NODE_URL', 'localhost:8080')
-)
+CORS_ORIGIN_WHITELIST = [
+    #os.environ.get('NODE_URL', 'localhost:8080'),
+    "http://127.0.0.1:8080",
+    "127.0.0.1:8080",
+    "localhost:8080"
+]
 
 # Static and i18n settings
 STATICFILES_FINDERS = (
