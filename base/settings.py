@@ -184,7 +184,9 @@ CORS_ORIGIN_WHITELIST = [
     #os.environ.get('NODE_URL', 'localhost:8080'),
     "http://127.0.0.1:8080",
     "127.0.0.1:8080",
-    "localhost:8080"
+    "localhost:8080",
+    "local.openeats",
+    "openeats.eightywo.io"
 ]
 
 # Static and i18n settings

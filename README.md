@@ -37,3 +37,26 @@ You can access the API roots via there app names:
 * Recipe groups - http://localhost:8000/api/v1/recipe_groups/
 * News - http://localhost:8000/api/v1/news/
 * Lists - http://localhost:8000/api/v1/list/
+
+#### openeats-api setup without docker
+- install postgres
+- create user and database in postgres - brief linux command help:
+```sh
+sudo -u postgres createuser --interactive
+sudo -u postgres psql
+CREATE DATABASE openeats;
+```
+- update base/settings.py with DB credentials (step above)
+- install python 3 if needed
+- install pip if needed
+- install virtualenv wrapper (sometimes vewrapper needs some extra tweaking - ref: https://bit.ly/33ZCngc)
+```sh
+mkvirtualenv openeats
+workon openeats
+pip install base\requirements.txt
+python manage.py createsuperuser --username admin --email xxx@yyy.zzz
+python manage.py migrate
+python manage.py runserver 0.0.0.0:8000
+```
+- api should then be available at: 127.0.0.1:8000/api/v1/recipe/
+- admin should then be available at: 127.0.0.1:8000/admin
