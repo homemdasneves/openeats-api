@@ -44,6 +44,7 @@ You can access the API roots via there app names:
 ```sh
 sudo -u postgres createuser --interactive
 sudo -u postgres psql
+ALTER USER user_name WITH PASSWORD 'new_password';
 CREATE DATABASE openeats;
 ```
 - update base/settings.py with DB credentials (step above)
