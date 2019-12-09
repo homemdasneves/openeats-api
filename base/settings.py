@@ -26,8 +26,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DATABASE_NAME', 'openeats'),
-        'USER': os.environ.get('DATABASE_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'ecosaude'),
+        'USER': os.environ.get('DATABASE_USER', 'sa'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', '4dm1n_pwd'),
         'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
         'PORT': os.environ.get('DATABASE_PORT', '5432'),
         'TEST': {
@@ -38,7 +38,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/2.0/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'node', 'web']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'node', 'web','eightytwo.io','openeats-api.eightytwo.io']
 
 env_allowed_host = os.environ.get('ALLOWED_HOST', None)
 if env_allowed_host is not None:
@@ -185,8 +185,8 @@ CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:8080",
     "127.0.0.1:8080",
     "localhost:8080",
-    "local.openeats",
-    "openeats.eightywo.io"
+					 
+    "openeats.eightytwo.io"
 ]
 
 # Static and i18n settings
