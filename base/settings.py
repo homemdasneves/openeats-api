@@ -102,6 +102,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'coreapi',
+    'drf_yasg',
 
     'base',
     'v1.recipe',
@@ -185,7 +186,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:8080",
     "127.0.0.1:8080",
     "localhost:8080",
-					 
+    "local.openeats",
     "openeats.eightytwo.io"
 ]
 
